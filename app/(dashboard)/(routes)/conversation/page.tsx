@@ -48,10 +48,14 @@ const Conversation = () => {
                     <Input className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent" disabled={isLoading} placeholder="뭘 물어볼까?" {...field} />
                   </FormControl>
                 </FormItem>)} />
-                <Button className="col-span-12 lg:col-span-2">AI에 질문하기</Button>
+              <Button className="col-span-12 lg:col-span-2">AI에 질문하기</Button>
             </form>
           </Form>
         </div>
+        <div className="space-y-4 mt-4">
+          Messages Content
+        </div>
+
       </div>
     </div>
   );
