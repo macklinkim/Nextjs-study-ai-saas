@@ -2,12 +2,14 @@
 import { useState } from "react";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 import { useRouter } from "next/navigation";
-import { MessagesSquare } from "lucide-react";
+import { Code } from "lucide-react";
 import { useForm } from "react-hook-form";
+import ReactMarkDown from "react-markdown";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod"
 import { formSchema } from "./constants";
 import axios from "axios";
+
 import {
   Form,
   FormControl,
@@ -22,7 +24,7 @@ import Empty from "@/components/empty";
 import Loader from "@/components/loader";
 import UserAvatar from "@/components/user-avatar";
 import BotAvatar from "@/components/bot-avatar";
-const ConversationPage = () => {
+const CodePage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([]);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -40,7 +42,7 @@ const ConversationPage = () => {
         content: data.prompt,
       };
       const newMessages = [...messages, userMessage];
-      const response = await axios.post("/api/conversation", {
+      const response = await axios.post("/api/code", {
         messages: newMessages,
       });
       setMessages((current) => [...current, userMessage, response.data]);
@@ -57,11 +59,11 @@ const ConversationPage = () => {
   return (
     <div>
       <Heading
-        title="AI에 질문하기"
-        description="Gpt[3.5]-turbo AI에 질문하기"
-        icon={MessagesSquare}
-        iconColor="text-indigo-500"
-        bgColor="bg-indigo-500/10" />
+        title="AI에 코딩 질문하기"
+        description="Gpt[3.5]-turbo AI에 코딩 질문하기"
+        icon={Code}
+        iconColor="text-orange-500"
+        bgColor="bg-orange-500/10" />
       {/* npx shadcn-ui@latest add form, shadcn ui써서 작성, useForm, zod 합쳐짐 개꿀 */}
       {/* npx shadcn-ui@latest add input */}
       <div className="px-4 lg:px-8">
@@ -71,10 +73,10 @@ const ConversationPage = () => {
               <FormField name="prompt" render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-10" >
                   <FormControl className="m-0 p-0">
-                    <Input className="p-1 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent" disabled={isLoading} placeholder="뭘 물어볼까?" {...field} />
+                    <Input className="p-1 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent" disabled={isLoading} placeholder="간단하게 React axios custom hook 만들어줄래?" {...field} />
                   </FormControl>
                 </FormItem>)} />
-              <Button className="col-span-12 lg:col-span-2">AI에 질문하기</Button>
+              <Button className="col-span-12 lg:col-span-2">코딩 질문하기</Button>
             </form>
           </Form>
         </div>
@@ -86,9 +88,17 @@ const ConversationPage = () => {
               <div className={
                 cn("whitespace-pre-wrap p-8 w-full flex items-start gap-x-8 rounded-lg text-wrap ", message.role === 'user' ? "bg-white border border-black/10" : "bg-muted")}
                 key={index} >
-                {message.role === 'user' ? <UserAvatar /> : null } 
-                {'' + message?.content} 
-                {message.role === 'assistant' ? <BotAvatar /> : null }
+                {message.role === 'user' ? <UserAvatar /> : null}
+                <ReactMarkDown
+                  components={{
+                    pre: ({ node, ...props }) => <div className="overflow-auto text-wrap w-full my-2 px-3 rounded-lg bg-black/10" > <pre {...props}></pre>  </div>,
+                    code: ({ node, ...props }) => <code className="rounded-lg bg-black/10" {...props}/>
+                  }}
+                  className="overflow-hidden w-full  text-sm leading-7"
+                >
+                  {'' + message?.content}
+                </ReactMarkDown>
+                {message.role === 'assistant' ? <BotAvatar /> : null}
               </div>))}
           </div>
         </div>
@@ -97,4 +107,4 @@ const ConversationPage = () => {
   );
 }
 
-export default ConversationPage;
+export default CodePage;

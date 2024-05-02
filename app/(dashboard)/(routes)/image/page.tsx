@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 import { useRouter } from "next/navigation";
-import { MessagesSquare } from "lucide-react";
+import { ImageIcon, MessagesSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod"
@@ -22,7 +22,7 @@ import Empty from "@/components/empty";
 import Loader from "@/components/loader";
 import UserAvatar from "@/components/user-avatar";
 import BotAvatar from "@/components/bot-avatar";
-const ConversationPage = () => {
+const ImagePage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([]);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -57,11 +57,11 @@ const ConversationPage = () => {
   return (
     <div>
       <Heading
-        title="AI에 질문하기"
-        description="Gpt[3.5]-turbo AI에 질문하기"
-        icon={MessagesSquare}
-        iconColor="text-indigo-500"
-        bgColor="bg-indigo-500/10" />
+        title="AI로 그림 생성하기"
+        description="AI를 이용한 그림 생성"
+        icon={ImageIcon}
+        iconColor="text-pink-500"
+        bgColor="bg-pink-500/10" />
       {/* npx shadcn-ui@latest add form, shadcn ui써서 작성, useForm, zod 합쳐짐 개꿀 */}
       {/* npx shadcn-ui@latest add input */}
       <div className="px-4 lg:px-8">
@@ -97,4 +97,4 @@ const ConversationPage = () => {
   );
 }
 
-export default ConversationPage;
+export default ImagePage;
