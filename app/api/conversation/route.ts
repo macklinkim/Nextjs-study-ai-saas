@@ -1,4 +1,3 @@
-import { config } from "./../../../middleware";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 // import Configuration from "openai";
@@ -6,7 +5,7 @@ import { NextResponse } from "next/server";
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
+  apiKey: process.env.OPENAI_API_KEY 
 });
 
 export async function POST(request: Request) {
@@ -25,7 +24,8 @@ export async function POST(request: Request) {
 			return new NextResponse("[api/conversation] no messages", { status: 500 });
 		}
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      // model: "gpt-3.5-turbo",
+      model: "gpt-4",
       messages: [{"role": "user", "content": messages[messages.length-1].content}],
     });
     console.log("[api/conversation]", response.choices[0].message);
