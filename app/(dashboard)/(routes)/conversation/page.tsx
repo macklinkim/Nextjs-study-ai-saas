@@ -58,7 +58,7 @@ const ConversationPage = () => {
     <div>
       <Heading
         title="AI에 질문하기"
-        description="Gpt[3.5]-turbo AI에 질문하기"
+        description="Chat-Gpt4의 답변입니다."
         icon={MessagesSquare}
         iconColor="text-indigo-500"
         bgColor="bg-indigo-500/10" />
