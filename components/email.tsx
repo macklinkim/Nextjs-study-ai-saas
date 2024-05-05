@@ -4,7 +4,7 @@ import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 function Email() {
-	const form = useRef();
+	const form = useRef(null);
 	const router = useRouter();
   const emailSvc = process.env.NEXT_PUBLIC_EMAIL_SERVICE??"";
   const emailTemp = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE??"";
