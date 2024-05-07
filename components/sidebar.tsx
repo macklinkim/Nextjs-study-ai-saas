@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils";
-import { Code, ImageIcon, LayoutDashboard, MessagesSquare, Music, Settings, VideoIcon } from "lucide-react";
+import { Code, ImageIcon, LayoutDashboard, MessagesSquare, Music, Settings, VideoIcon , MessageSquareText } from "lucide-react";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,9 +15,15 @@ const routes = [
     color: "text-gray-300"
   },
   {
-    label: "Conversation",
+    label: "AI 질문하기(ChatGPT4)",
     icon: MessagesSquare,
     href: "/conversation",
+    color: "text-violet-300"
+  },
+  {
+    label: "AI 질문하기(Llama3)",
+    icon: MessageSquareText,
+    href: "/conversation2",
     color: "text-violet-300"
   },
   {
