@@ -27,6 +27,7 @@ import {
 import Empty from "@/components/empty";
 import Loader from "@/components/loader";
 import { Card, CardFooter } from "@/components/ui/card";
+import { useProModal } from "@/hooks/use-pro-modal";
 import Image from "next/image";
 const ImagePage = () => {
   const router = useRouter();
@@ -39,7 +40,7 @@ const ImagePage = () => {
       resolution: "256x256",
     }
   });
-
+  const proModal = useProModal();
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
@@ -51,6 +52,9 @@ const ImagePage = () => {
       form.reset();
     } catch (error: any) {
       console.log('[conversation page]', error);
+      if(error?.response?.status === 403){
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }

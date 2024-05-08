@@ -1,49 +1,14 @@
 "use client"
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Code, ImageIcon, MessagesSquare, Music, VideoIcon } from "lucide-react";
+import { tools } from "@/constants";
 import { useRouter } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 
 type Props = {
 
 }
-const tools = [
-  {
-    label: "Conversation",
-    icon: MessagesSquare,
-    color: "text-indigo-500",
-    bgColor: "bg-indigo-500/10",
-    href: "/conversation"
-  },
-  {
-    label: "Music Generator",
-    icon: Music,
-    href: "/music",
-    color: "text-sky-300",
-    bgColor: "bg-sky-300/10"
-  },
-  {
-    label: "Code Generator",
-    icon: Code,
-    href: "/code",
-    color: "text-orange-300",
-    bgColor: "bg-orange-300/10"
-  },
-  {
-    label: "Video Generator",
-    icon: VideoIcon,
-    href: "/video",
-    color: "text-green-300",
-    bgColor: "bg-green-300/10"
-  },
-  {
-    label: "Image Generator",
-    icon: ImageIcon,
-    href: "/image",
-    color: "text-pink-300",
-    bgColor: "bg-pink-300/10"
-  },
-]
+
 const DashboardPage = ({ }: Props) => {
   const router = useRouter();
   return (

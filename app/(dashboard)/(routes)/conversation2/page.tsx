@@ -21,6 +21,7 @@ import Empty from "@/components/empty";
 import Loader from "@/components/loader";
 import UserAvatar from "@/components/user-avatar";
 import BotAvatar from "@/components/bot-avatar";
+import { useProModal } from "@/hooks/use-pro-modal";
 const ConversationPage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
@@ -30,7 +31,7 @@ const ConversationPage = () => {
       prompt: ""
     }
   });
-
+  const proModal = useProModal();
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
@@ -47,7 +48,9 @@ const ConversationPage = () => {
       console.log('[conversation2 page/messages]', messages);
       form.reset();
     } catch (error: any) {
-      console.log('[conversation2 page]', error);
+      if(error?.response?.status === 403){
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }

@@ -1,7 +1,8 @@
 "use client"
 import { useState } from "react";
+import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 import { useRouter } from "next/navigation";
-import { Music } from "lucide-react";
+import { MessagesSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod"
@@ -13,15 +14,18 @@ import {
   FormField,
   FormItem
 } from "@/components/ui/form";
+import { cn } from "@/lib/utils";
 import Heading from "@/components/heading";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Empty from "@/components/empty";
 import Loader from "@/components/loader";
+import UserAvatar from "@/components/user-avatar";
+import BotAvatar from "@/components/bot-avatar";
 import { useProModal } from "@/hooks/use-pro-modal";
-const MusicPage = () => {
+const ConversationPage = () => {
   const router = useRouter();
-  const [music, setMusic] = useState<string>();
+  const [messages, setMessages] = useState<ChatCompletionMessageParam[]>([]);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -32,14 +36,19 @@ const MusicPage = () => {
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
-      setMusic(undefined);
-
-      const response = await axios.post("/api/music", data);
-      console.log('[conversation page]', music);
-      setMusic(response.data.audio);
+      const userMessage: ChatCompletionMessageParam = {
+        role: "user",
+        content: data.prompt,
+      };
+      const newMessages = [...messages, userMessage];
+      const response = await axios.post("/api/conversation3", {
+        messages: newMessages,
+      });
+      setMessages((current) => [...current, userMessage, response.data]);
+      console.log('[conversation page]', messages);
       form.reset();
     } catch (error: any) {
-      console.log('[conversation page]', error);
+      
       if(error?.response?.status === 403){
         proModal.onOpen();
       }
@@ -52,11 +61,11 @@ const MusicPage = () => {
   return (
     <div>
       <Heading
-        title="AI에 작곡을 부탁하기"
-        description="replicate로 음악을 생성해보세요."
-        icon={Music}
-        iconColor="text-sky-500"
-        bgColor="bg-sky-500/10" />
+        title="AI에게 질문하기"
+        description="Chat-Gpt3.5의 답변입니다."
+        icon={MessagesSquare}
+        iconColor="text-indigo-500"
+        bgColor="bg-indigo-500/10" />
       {/* npx shadcn-ui@latest add form, shadcn ui써서 작성, useForm, zod 합쳐짐 개꿀 */}
       {/* npx shadcn-ui@latest add input */}
       <div className="px-4 lg:px-8">
@@ -66,7 +75,7 @@ const MusicPage = () => {
               <FormField name="prompt" render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-10" >
                   <FormControl className="m-0 p-0">
-                    <Input className="p-1 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent" disabled={isLoading} placeholder="AI야 피아노 솔로곡 만들어줘" {...field} />
+                    <Input className="p-1 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent" disabled={isLoading} placeholder="뭘 물어볼까?" {...field} />
                   </FormControl>
                 </FormItem>)} />
               <Button className="col-span-12 lg:col-span-2">AI에 질문하기</Button>
@@ -74,17 +83,22 @@ const MusicPage = () => {
           </Form>
         </div>
         <div className="space-y-4 mt-4">
-          {isLoading && (<div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted"> <Loader text="음악을 만드는 중입니다."/> </div>)}
-          {!music && !isLoading && (<Empty src="/music-removebg.png" label="아직 만들어진 곡이 없습니다." />)}
-          {music && (
-            <audio controls className="w-full mt-6">
-              <source src={music}/>
-            </audio>
-          )}
+          {isLoading && (<div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted"> <Loader /> </div>)}
+          {messages.length === 0 && !isLoading && (<Empty label="아직 대화가 없습니다. 대화를 시작하세요~" />)}
+          <div className="flex flex-col-reverse gap-4">
+            {messages.map((message, index) => (
+              <div className={
+                cn("whitespace-pre-wrap p-8 w-full flex items-start gap-x-8 rounded-lg text-wrap ", message.role === 'user' ? "bg-white border border-black/10" : "bg-muted")}
+                key={index} >
+                {message.role === 'user' ? <UserAvatar /> : null } 
+                {'' + message?.content} 
+                {message.role === 'assistant' ? <BotAvatar /> : null }
+              </div>))}
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default MusicPage;
+export default ConversationPage;

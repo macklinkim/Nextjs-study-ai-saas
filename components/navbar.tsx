@@ -1,9 +1,12 @@
 import { UserButton } from "@clerk/nextjs"
 import MobileSidebar from "@/components/mobile-sidebar"
-const NavBar = () => {
+interface NavBarProps {
+  apiLimitCount: number;
+};
+const NavBar = ({apiLimitCount =0 }: NavBarProps) => {
   return (
     <div className="flex p-4 items-center">
-      <MobileSidebar ></MobileSidebar>
+      <MobileSidebar apiLimitCount = {apiLimitCount} ></MobileSidebar>
       <div className="flex w-full justify-end">
         <UserButton afterSignOutUrl="/" />
       </div>

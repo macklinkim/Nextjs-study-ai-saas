@@ -6,7 +6,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import SideBar from "@/components/sidebar";
 import { useEffect, useState } from "react";
 
-const MobileSidebar = () => {
+interface MobileSidebarProps {
+  apiLimitCount: number;
+};
+const MobileSidebar = ({apiLimitCount =0 }: MobileSidebarProps) => {
   /* hydration 오류가 발생했을경우 처리 코드 추가 */
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
@@ -25,10 +28,10 @@ const MobileSidebar = () => {
         </Button> */}
 
         {/* 해결 후 */}
-        <Menu className="md:hidden"/>
+        <Menu className="flex"/>
       </SheetTrigger>
-      <SheetContent side="left" className="p-0">
-        <SideBar />
+      <SheetContent side="left" className="p-0 w-72 md:hidden">
+        <SideBar apiLimitCount ={apiLimitCount}/>
       </SheetContent>
     </Sheet>
   );
