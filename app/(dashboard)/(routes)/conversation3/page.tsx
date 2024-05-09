@@ -41,13 +41,14 @@ const ConversationPage = () => {
         content: data.prompt,
       };
       const newMessages = [...messages, userMessage];
-      const response = await axios.post("/api/conversation", {
+      const response = await axios.post("/api/conversation3", {
         messages: newMessages,
       });
       setMessages((current) => [...current, userMessage, response.data]);
       console.log('[conversation page]', messages);
       form.reset();
     } catch (error: any) {
+      
       if(error?.response?.status === 403){
         proModal.onOpen();
       }
@@ -61,7 +62,7 @@ const ConversationPage = () => {
     <div>
       <Heading
         title="AI에게 질문하기"
-        description="Chat-Gpt4의 답변입니다."
+        description="Chat-Gpt3.5의 답변입니다."
         icon={MessagesSquare}
         iconColor="text-indigo-500"
         bgColor="bg-indigo-500/10" />
@@ -82,7 +83,7 @@ const ConversationPage = () => {
           </Form>
         </div>
         <div className="space-y-4 mt-4">
-          {isLoading && (<div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted"> <Loader /> </div>)}
+          {isLoading && (<div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted"> <Loader text="chatGPT3.5가 답변을 생성중입니다." /> </div>)}
           {messages.length === 0 && !isLoading && (<Empty label="아직 대화가 없습니다. 대화를 시작하세요~" />)}
           <div className="flex flex-col-reverse gap-4">
             {messages.map((message, index) => (

@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Empty from "@/components/empty";
 import Loader from "@/components/loader";
+import { useProModal } from "@/hooks/use-pro-modal";
 const MusicPage = () => {
   const router = useRouter();
   const [music, setMusic] = useState<string>();
@@ -27,7 +28,7 @@ const MusicPage = () => {
       prompt: ""
     }
   });
-
+  const proModal = useProModal();
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
@@ -39,6 +40,9 @@ const MusicPage = () => {
       form.reset();
     } catch (error: any) {
       console.log('[conversation page]', error);
+      if(error?.response?.status === 403){
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
