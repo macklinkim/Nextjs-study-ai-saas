@@ -78,13 +78,14 @@ const routes = [
 
 interface SideBarProps {
   apiLimitCount: number;
+  isPro: boolean;
 };
 
-const SideBar = ({apiLimitCount =0 }: SideBarProps) => {
+const SideBar = ({apiLimitCount =0 , isPro  = false}: SideBarProps) => {
   //길어지는 className을 줄이기위해 pathname 사용
   const pathname = usePathname();
   return (
-    <div className="space-y-4 py-4 flex flex-col h-full bg-gray-800 text-white" >
+    <div className="space-y-4 py-4 flex flex-col h-full bg-gray-800 text-white overflow-auto" >
       <div className="px-3 py-2 flex-1 ">
         <Link href='/dashboard' className="flex items-center pl-3 mb-14">
           <div className="relative w-8 h-8 mr-4">
@@ -104,7 +105,7 @@ const SideBar = ({apiLimitCount =0 }: SideBarProps) => {
           ))}
         </div>
       </div>
-      <FreeCounter apiLimitCount={apiLimitCount}/>
+      <FreeCounter isPro={isPro} apiLimitCount={apiLimitCount}/>
     </div>
   );
 }

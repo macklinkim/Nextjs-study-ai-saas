@@ -87,7 +87,7 @@ const ConversationPage = () => {
           <div className="flex flex-col-reverse gap-4">
             {messages.map((message, index) => (
               <div className={
-                cn("whitespace-pre-wrap p-8 w-full flex items-start gap-x-8 rounded-lg text-wrap ", message.role === 'user' ? "bg-white border border-black/10" : "bg-muted")}
+                cn("whitespace-pre-wrap p-8 w-full flex items-start gap-x-8 rounded-lg break-keep ", message.role === 'user' ? "bg-white border border-black/10" : "bg-muted")}
                 key={index} >
                 {message.role === 'user' ? <UserAvatar /> : null } 
                 {'' + message?.content} 

@@ -83,12 +83,12 @@ const ConversationPage = () => {
           </Form>
         </div>
         <div className="space-y-4 mt-4">
-          {isLoading && (<div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted"> <Loader /> </div>)}
+          {isLoading && (<div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted"> <Loader text="chatGPT3.5가 답변을 생성중입니다." /> </div>)}
           {messages.length === 0 && !isLoading && (<Empty label="아직 대화가 없습니다. 대화를 시작하세요~" />)}
           <div className="flex flex-col-reverse gap-4">
             {messages.map((message, index) => (
               <div className={
-                cn("whitespace-pre-wrap p-8 w-full flex items-start gap-x-8 rounded-lg text-wrap ", message.role === 'user' ? "bg-white border border-black/10" : "bg-muted")}
+                cn("whitespace-pre-wrap p-8 w-full flex items-start gap-x-8 rounded-lg break-keep ", message.role === 'user' ? "bg-white border border-black/10" : "bg-muted")}
                 key={index} >
                 {message.role === 'user' ? <UserAvatar /> : null } 
                 {'' + message?.content} 

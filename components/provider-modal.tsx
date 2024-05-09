@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import axios from "axios";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
   Code,
@@ -22,6 +24,20 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 const ProviderModal = () => {
   const proModal = useProModal();
+  const [loading, setLoading] = useState(false);
+
+  const onSubscribe = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("/api/stripe");
+      window.location.href = response.data.url;
+    } catch (error) {
+      console.log("[api/stripe]", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
       <DialogContent>
@@ -29,16 +45,16 @@ const ProviderModal = () => {
           <DialogTitle className="flex flex-col gap-y-3 justify-center items-center">
             <div className="flex items-center gap-x-2 font-bold">
               남은 횟수 충전
-              <Badge className="text-sm" variant={"addCount"}>
+              <Badge className="text-sm text-white font-bold" variant={"addCount"}>
                 충전하기
               </Badge>
             </div>
           </DialogTitle>
-          <DialogDescription className="text-center space-y-2 text-zinc-800 font-medium grid grid-cols-2 self-start">
+          <DialogDescription className="text-center text-zinc-800 font-medium grid grid-cols-2 gap-1 ">
             {tools.map((tool, index) => (
               <Card key={index} className="p-4 border-black/5 flex items-center justify-between">
                 <div className="flex items-center gap-x-3">
-                  <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
+                  <div className={cn("p-1 w-fit rounded-md", tool.bgColor)}>
                     <tool.icon className={cn("w-8 h-8", tool.color)} />
                   </div>
                 </div>
@@ -50,12 +66,13 @@ const ProviderModal = () => {
         </DialogHeader>
         <DialogFooter>
           <Button
+            onClick={onSubscribe}
             size="lg"
             variant="addCount"
-            className="w-full"
+            className="w-full text-white font-bold"
           >
             질문 횟수 추가
-            <Zap className="w-4 h-4 ml-2 fill-white"></Zap>
+            <Zap className="w-6 h-6 ml-2 fill-amber-200"></Zap>
           </Button>
         </DialogFooter>
       </DialogContent>

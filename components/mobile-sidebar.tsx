@@ -8,8 +8,9 @@ import { useEffect, useState } from "react";
 
 interface MobileSidebarProps {
   apiLimitCount: number;
+  isPro: boolean;
 };
-const MobileSidebar = ({apiLimitCount =0 }: MobileSidebarProps) => {
+const MobileSidebar = ({apiLimitCount =0, isPro=false }: MobileSidebarProps) => {
   /* hydration 오류가 발생했을경우 처리 코드 추가 */
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
@@ -28,10 +29,10 @@ const MobileSidebar = ({apiLimitCount =0 }: MobileSidebarProps) => {
         </Button> */}
 
         {/* 해결 후 */}
-        <Menu className="flex"/>
+        <Menu className="flex md:hidden"/>
       </SheetTrigger>
-      <SheetContent side="left" className="p-0 w-72 md:hidden">
-        <SideBar apiLimitCount ={apiLimitCount}/>
+      <SheetContent side="left" className="p-0 w-72">
+        <SideBar isPro = {isPro} apiLimitCount ={apiLimitCount}/>
       </SheetContent>
     </Sheet>
   );

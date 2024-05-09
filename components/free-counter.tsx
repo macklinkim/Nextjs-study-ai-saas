@@ -9,9 +9,10 @@ import { useProModal } from "@/hooks/use-pro-modal";
 
 interface FreeCounterProps {
   apiLimitCount: number;
+  isPro: boolean;
 }
 
-const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
+const FreeCounter = ({ apiLimitCount = 0, isPro=false }: FreeCounterProps) => {
   const proModal = useProModal();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -20,6 +21,8 @@ const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
   if (!mounted) {
     return null;
   }
+  if(isPro) return null;
+  
   return (
     <div className="px-2">
       <Card className="bg-white/10 border-0 flex flex-col">
@@ -30,7 +33,7 @@ const FreeCounter = ({ apiLimitCount = 0 }: FreeCounterProps) => {
             </p>
             <Progress className="" value={apiLimitCount / MAX_FREE_COUNTS * 100} max={1}/>
           </div>
-          <Button onClick={proModal.onOpen} className="w-full bg-gray-600" variant={"addCount"}>
+          <Button onClick={proModal.onOpen} className="w-full bg-gray-600 text-white font-bold" variant={"addCount"}>
             질문 횟수 충전하기
             <Zap className="w-5 h-5 ml-2 fill-gray-300" />
           </Button>

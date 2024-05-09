@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import OpenAI from 'openai';
 import Replicate from "replicate";
 import { increaseApiLimit, checkApiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
@@ -14,6 +15,7 @@ export async function POST(request: Request) {
     const { userId } = auth();
     const body = await request.json();
     const { messages } = body;
+    const isPro = await checkSubscription();
     console.log("[api/conversation3]", messages);
     if (!userId) {
       return new NextResponse("[api/conversation3] unauthorized", { status: 401 });
@@ -27,7 +29,7 @@ export async function POST(request: Request) {
     
     const freeTrial = await checkApiLimit();
     
-    if (!freeTrial) {
+    if (!freeTrial && !isPro) {
       //403 error 권한 때문에 거절됨을 의미한다.
       return new NextResponse("[api/conversation3] api limit exceeded", { status: 403 });
     }
@@ -38,7 +40,10 @@ export async function POST(request: Request) {
       messages: [{ "role": "user", "content": messages[messages.length - 1].content }],
     });
     console.log("[api/conversation3]", response.choices[0].message);
-    await increaseApiLimit();
+    if (!isPro) {
+      await increaseApiLimit();
+      
+    }
     return NextResponse.json(response.choices[0].message, { status: 200 });
   } catch (error) {
     console.log("[api/conversation3]", error);

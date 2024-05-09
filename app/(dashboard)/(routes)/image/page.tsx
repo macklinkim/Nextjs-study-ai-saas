@@ -74,7 +74,7 @@ const ImagePage = () => {
     <div>
       <Heading
         title="AI로 그림 생성하기"
-        description="AI를 이용한 그림 생성"
+        description="dalle-2/3를 이용해 그림을 만들어보세요."
         icon={ImageIcon}
         iconColor="text-pink-500"
         bgColor="bg-pink-500/10" />
@@ -136,7 +136,7 @@ const ImagePage = () => {
           </Form>
         </div>
         <div className="space-y-4 mt-4">
-          {isLoading && (<div className="p-20"> <Loader /> </div>)}
+          {isLoading && (<div className="p-20"> <Loader text="그림을 만드는 중입니다."/> </div>)}
           {images.length === 0 && !isLoading && (<Empty src="/image-remv.png" label="아직 생성된 그림이 없습니다. 제작을 시작하세요~" />)}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 m-4">
             {images.map((image, index) => (
