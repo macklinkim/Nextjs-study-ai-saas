@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button"
+import toast from "react-hot-toast";
 interface SubscriptionButtonProps {
   isPro: boolean;
 }
@@ -12,9 +13,8 @@ const SubscriptionButton = ({ isPro = false }: SubscriptionButtonProps) => {
   const handleClick = async () => {
     try {
       const response = await axios.get("/api/stripe");
-    } catch (error) {
-      console.log("[api/stripe]", error);
-      
+    } catch (error: any) {
+      toast.error("[api/stripe]", error!);
     }
   }
   return (

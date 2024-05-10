@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import Empty from "@/components/empty";
 import Loader from "@/components/loader";
 import { useProModal } from "@/hooks/use-pro-modal";
+import toast from "react-hot-toast";
 const VideoPage = () => {
   const router = useRouter();
   const [video, setVideo] = useState<string>();
@@ -42,6 +43,8 @@ const VideoPage = () => {
       console.log('[video page]', error);
       if(error?.response?.status === 403){
         proModal.onOpen();
+      }else{
+        toast.error("[video page] video 생성 중 오류가 발생했습니다.", error);
       }
     } finally {
       router.refresh();

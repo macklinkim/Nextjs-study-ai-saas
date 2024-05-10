@@ -29,6 +29,7 @@ import Loader from "@/components/loader";
 import { Card, CardFooter } from "@/components/ui/card";
 import { useProModal } from "@/hooks/use-pro-modal";
 import Image from "next/image";
+import toast from "react-hot-toast";
 const ImagePage = () => {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
@@ -45,15 +46,17 @@ const ImagePage = () => {
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
       setImages([]);
-      // console.log('[conversation page]', data);
+      // console.log('[image page]', data);
       const response = await axios.post("/api/image", data);
       const URLS = response.data.map((image: { url: string }) => image.url);
       setImages(URLS);
       form.reset();
     } catch (error: any) {
-      console.log('[conversation page]', error);
+      console.log('[image page]', error);
       if(error?.response?.status === 403){
         proModal.onOpen();
+      }else{
+        toast.error("[image page] image 생성 중 오류가 발생했습니다.", error);
       }
     } finally {
       router.refresh();

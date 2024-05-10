@@ -22,6 +22,7 @@ import { tools } from "@/constants";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import toast from "react-hot-toast";
 const ProviderModal = () => {
   const proModal = useProModal();
   const [loading, setLoading] = useState(false);
@@ -31,8 +32,8 @@ const ProviderModal = () => {
       setLoading(true);
       const response = await axios.get("/api/stripe");
       window.location.href = response.data.url;
-    } catch (error) {
-      console.log("[api/stripe]", error);
+    } catch (error:any) {
+      toast.error("[api/stripe]", {...error});
     } finally {
       setLoading(false);
     }
@@ -66,6 +67,7 @@ const ProviderModal = () => {
         </DialogHeader>
         <DialogFooter>
           <Button
+            disabled = {loading}
             onClick={onSubscribe}
             size="lg"
             variant="addCount"

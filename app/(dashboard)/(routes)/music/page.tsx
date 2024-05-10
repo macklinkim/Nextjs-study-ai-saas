@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import Empty from "@/components/empty";
 import Loader from "@/components/loader";
 import { useProModal } from "@/hooks/use-pro-modal";
+import toast from "react-hot-toast";
 const MusicPage = () => {
   const router = useRouter();
   const [music, setMusic] = useState<string>();
@@ -35,13 +36,15 @@ const MusicPage = () => {
       setMusic(undefined);
 
       const response = await axios.post("/api/music", data);
-      console.log('[conversation page]', music);
+      console.log('[music page]', music);
       setMusic(response.data.audio);
       form.reset();
     } catch (error: any) {
-      console.log('[conversation page]', error);
+      console.log('[music page]', error);
       if(error?.response?.status === 403){
         proModal.onOpen();
+      }else{
+        toast.error("[music page] music 생성 중 오류가 발생했습니다.", error);
       }
     } finally {
       router.refresh();
