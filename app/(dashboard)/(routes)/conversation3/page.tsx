@@ -4,6 +4,7 @@ import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 import { useRouter } from "next/navigation";
 import { MessagesSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod"
 import { formSchema } from "./constants";
@@ -45,12 +46,14 @@ const ConversationPage = () => {
         messages: newMessages,
       });
       setMessages((current) => [...current, userMessage, response.data]);
-      console.log('[conversation page]', messages);
+      console.log('[conversation3 page]', messages);
       form.reset();
     } catch (error: any) {
-      
-      if(error?.response?.status === 403){
+
+      if (error?.response?.status === 403) {
         proModal.onOpen();
+      } else {
+        toast.error("[conversation page] 답변 생성 중 오류가 발생했습니다.", error);
       }
     } finally {
       router.refresh();
@@ -90,9 +93,9 @@ const ConversationPage = () => {
               <div className={
                 cn("whitespace-pre-wrap p-8 w-full flex items-start gap-x-8 rounded-lg break-keep ", message.role === 'user' ? "bg-white border border-black/10" : "bg-muted")}
                 key={index} >
-                {message.role === 'user' ? <UserAvatar /> : null } 
-                {'' + message?.content} 
-                {message.role === 'assistant' ? <BotAvatar /> : null }
+                {message.role === 'user' ? <UserAvatar /> : null}
+                {'' + message?.content}
+                {message.role === 'assistant' ? <BotAvatar /> : null}
               </div>))}
           </div>
         </div>

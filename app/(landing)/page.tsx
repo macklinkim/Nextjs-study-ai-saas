@@ -1,24 +1,19 @@
+import LandingAi from "@/components/landing-ai";
+import LandingContent from "@/components/landing-content";
+import LandingCowork from "@/components/landing-cowork";
+import LandingNavbar from "@/components/landing-navbar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const LandingPage = () => {
   return (
-    <div>
-      
-      <div className="flex flex-col items-center justify-center">
-        <p>GPT4, dalle3와 함께 AI 체험을 해보세요!</p>
-        <Link href="/sign-in">
-          <Button>
-            Login
-          </Button>
-        </Link>
-        <Link href="/sign-up">
-          <Button>
-            Register
-          </Button>
-        </Link>
-      </div>
-    </div>);
+    <div className="h-full">
+      <LandingNavbar/>
+      <LandingAi/>
+      <LandingContent/>
+      <LandingCowork/>
+    </div>
+    );
 }
 
 export default LandingPage;

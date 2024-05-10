@@ -22,6 +22,7 @@ import Loader from "@/components/loader";
 import UserAvatar from "@/components/user-avatar";
 import BotAvatar from "@/components/bot-avatar";
 import { useProModal } from "@/hooks/use-pro-modal";
+import toast from "react-hot-toast";
 const ConversationPage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
@@ -50,6 +51,8 @@ const ConversationPage = () => {
     } catch (error: any) {
       if(error?.response?.status === 403){
         proModal.onOpen();
+      }else {
+        toast.error("[conversation page] 답변 생성 중 오류가 발생했습니다.", error);
       }
     } finally {
       router.refresh();

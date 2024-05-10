@@ -73,4 +73,43 @@ export const tools = [
     bgColor:"text-gray-400/10",
     
   },
+];
+
+export const coworks = [
+  {
+    name:"김천호",
+    avatar:"foreign cause",
+    title:"random generated opinion이라 영어로 나오네요.",
+    description : "combination separate ship stock market rocket flight put smell colony planning principal current community income bow held spend shot studying bee when dried adjective",
+  },
+  {
+    name:"Allen Thomas",
+    avatar:"stage direction",
+    title:"deeply west slave believed into remarkable steam common fight",
+    description : "sell cage cloth trade constantly particles search beauty fox measure correctly aside mission itself steam jet bank ocean trick sitting birthday coat keep somehow",
+  },
+  {
+    name:"Derek Morris",
+    avatar:"fun outside",
+    title:"nest perhaps idea easier church music father congress nature",
+    description : "money sang fish general wild proper classroom loud from winter want gain rhythm clothing put pan led troops him available paid operation easy nails",
+  },
+  {
+    name:"Janie Mendez",
+    avatar:"symbol thought",
+    title:"sport creature kind blew diameter stage importance fifty for",
+    description : "canal past example everyone account vowel group scale production complete anything metal coffee captain around ball buffalo common my tax increase forward scientific tears",
+  },
+  {
+    name:"Ernest Long",
+    avatar:"explanation dinner",
+    title:"easy gun article ask pig salmon parent coast greater",
+    description : "cave possible life not mountain sport important strip come pale split plus old this means moment vegetable sure scared leather spin hope present something",
+  },
+  {
+    name:"Albert Maldonado",
+    avatar:"necessary earth",
+    title:"any contrast sum private uncle zoo food simplest made",
+    description : "finest milk lake paragraph rich sky replace missing lion cheese page mighty shells seldom too count major though bear nice produce roof simply fellow",
+  },
 ]
