@@ -34,7 +34,7 @@ const FreeCounter = ({ apiLimitCount = 0, isPro=false }: FreeCounterProps) => {
             <Progress className="" value={apiLimitCount / MAX_FREE_COUNTS * 100} max={1}/>
           </div>
           <Button onClick={proModal.onOpen} className="w-full bg-gray-600 text-white font-bold" variant={"addCount"}>
-            질문 횟수 충전하기
+            질문 횟수 +하기
             <Zap className="w-5 h-5 ml-2 fill-gray-300" />
           </Button>
         </CardContent>
