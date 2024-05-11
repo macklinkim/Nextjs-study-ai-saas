@@ -45,9 +45,9 @@ const ProviderModal = () => {
         <DialogHeader>
           <DialogTitle className="flex flex-col gap-y-3 justify-center items-center">
             <div className="flex items-center gap-x-2 font-bold">
-              남은 횟수 충전
+              남은 횟수 +
               <Badge className="text-sm text-white font-bold" variant={"addCount"}>
-                충전하기
+                +하기
               </Badge>
             </div>
           </DialogTitle>
@@ -73,7 +73,7 @@ const ProviderModal = () => {
             variant="addCount"
             className="w-full text-white font-bold"
           >
-            질문 횟수 추가
+            질문 횟수 +
             <Zap className="w-6 h-6 ml-2 fill-amber-200"></Zap>
           </Button>
         </DialogFooter>
