@@ -27,7 +27,7 @@ const LandingNavbar = () => {
       <div className="flex items-center justify-center gap-x-2">
         <Link href={isLoaded && isSignedIn ? "/dashboard" : "/sign-up"} className="flex justify-center items-center gap-x-3 text-white font-semibold">
           {isLoaded && isSignedIn ? "Dashboard" : "Sign In"}
-          <Button variant="outline" className="rounded-full text-gray-700 hover:font-bold" >AI 협업 시작하기</Button>
+          <Button variant="outline" className="rounded-full text-gray-700 hover:font-bold" >login</Button>
         </Link>
       </div>
     </nav>
