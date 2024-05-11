@@ -10,8 +10,8 @@ const LandingPage = () => {
     <div className="h-full">
       <LandingNavbar/>
       <LandingAi/>
-      {/* <LandingContent/> */}
-      {/* <LandingCowork/> */}
+      <LandingContent/>
+      <LandingCowork/>
     </div>
     );
 }

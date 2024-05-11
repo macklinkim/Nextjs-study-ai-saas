@@ -16,7 +16,9 @@ const Footer = () => {
         </li>
         <li>
           <a href="/email" className="hover:underline">
-            연락처: kopsert@gmail.com
+            개발자에게 메일보내기
+            <br/>
+            kopsert@gmail.com
           </a>
         </li>
       </ul>

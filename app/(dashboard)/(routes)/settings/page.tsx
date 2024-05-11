@@ -18,7 +18,7 @@ const SettingPage = async () => {
         <div className="text-muted-foreground text-sm">
           {isPro ? "정기 구독자입니다." : "무료 사용자입니다."}
         </div>
-        {/* <SubscriptionButton isPro={isPro}></SubscriptionButton> */}
+        <SubscriptionButton isPro={isPro}></SubscriptionButton>
       </div>
     </div>
   );
