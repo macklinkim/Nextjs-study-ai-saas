@@ -13,7 +13,7 @@ const LandingNavbar = () => {
 
   return (
     <nav className="flex items-center justify-between p-8 bg-transparent">
-      <Link href="/" className="flex justify-center items-center">
+      {/* <Link href="/" className="flex justify-center items-center">
         <Image
           src="/logo.png"
           alt="logo"
@@ -23,11 +23,11 @@ const LandingNavbar = () => {
         <span className={cn("text-2xl font-bold text-white", montserrat.className)}>
           My Nextjs App
         </span>
-      </Link>
+      </Link> */}
       <div className="flex items-center justify-center gap-x-2">
         <Link href={isLoaded && isSignedIn ? "/dashboard" : "/sign-up"} className="flex justify-center items-center gap-x-3 text-white font-semibold">
           {isLoaded && isSignedIn ? "Dashboard" : "Sign In"}
-          <Button variant="outline" className="rounded-full text-gray-700 hover:font-bold" >AI 협업 시작하기</Button>
+          <Button variant="outline" className="rounded-full text-gray-700 hover:font-bold" >login</Button>
         </Link>
       </div>
     </nav>
