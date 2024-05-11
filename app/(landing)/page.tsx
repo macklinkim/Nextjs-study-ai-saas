@@ -9,9 +9,9 @@ const LandingPage = () => {
   return (
     <div className="h-full">
       <LandingNavbar/>
-      <LandingAi/>
+      {/* <LandingAi/>
       <LandingContent/>
-      <LandingCowork/>
+      <LandingCowork/> */}
     </div>
     );
 }
