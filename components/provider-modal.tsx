@@ -30,8 +30,8 @@ const ProviderModal = () => {
   const onSubscribe = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("/api/stripe");
-      window.location.href = response.data.url;
+      // const response = await axios.get("/api/stripe");
+      // window.location.href = response.data.url;
     } catch (error:any) {
       toast.error("[api/stripe]", {...error});
     } finally {
