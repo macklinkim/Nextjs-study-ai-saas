@@ -85,6 +85,10 @@
 
 [![Product Name Screen Shot][product-screenshot]](/public/captureMain.png)
 
+
+https://github.com/macklinkim/Nextjs-study-ai-saas/assets/93594679/4da1f11d-0999-424c-bb18-ecaa7a88b7bc
+
+
 최근 글로벌 거대기업들이 AI개발에 주력하고 있으며 세계는 이 변화를 주목하고 있습니다. 
 
 이 프로젝트는 우수한 최신 AI의 기능을 일반 사용자에게 제공하는 AI SaaS 프로젝트입니다.
