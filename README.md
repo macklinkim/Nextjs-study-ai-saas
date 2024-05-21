@@ -105,7 +105,9 @@ AI SaaS(Software as a Service)란 클라우드 기반 방식으로 제공되는 
 * 또한, 미래에 AI가 광범위하게 사용될 것이 자명하므로 api 사용방법을 익히기 위해 해당프로젝트를 주제로 선정하여 진행했습니다.
 * 이외에 개인적으로 Nextjs와 React, Tailwind, Clerk 및 Openai API, Llama3, replicate 등의 AI기술에 접근하고 실제로 사용하는 프로젝트를 제작하고 싶어 주제로 정했습니다.
 * 개발 과정에 공부하게 된 내용을 블로그에 정리했으니 방문해보세요.
+  
 <a href="https://blog.naver.com/kopsert">프로젝트 제작 블로그가기</a>
+<br/>
 <a href="https://www.youtube.com/watch?v=ffJ38dBzrlY&t=411s">참고 유튜브 영상(deplicated된 함수, layout, api등 코드 개선)</a>
 
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
