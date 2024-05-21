@@ -85,17 +85,18 @@
 
 [![Product Name Screen Shot][product-screenshot]](/public/captureMain.png)
 
-최근 글로벌 거대기업들이 AI개발에 주력하고 있으며 세계는 이 변화를 주목하고 있습니다. 
+##### 최근 글로벌 거대기업들이 AI개발에 주력하고 있으며 세계는 이 변화를 주목하고 있습니다. 
+##### 하지만 일반 사용자는 바로 AI서비스를 사용하기 어려운 경우가 있습니다.
+##### 이 프로젝트는 우수한 최신 AI의 기능을 일반 사용자에게 제공하기위해 시작된 AI SaaS 프로젝트입니다.
 
-이 프로젝트는 우수한 최신 AI의 기능을 일반 사용자에게 제공하는 AI SaaS 프로젝트입니다.
-
-#### AI SaaS란?
+---
+### AI SaaS란?
 
 AI SaaS(Software as a Service)란 클라우드 기반 방식으로 제공되는 인공지능 소프트웨어 서비스를 말합니다. 사전에 소프트웨어를 구매하거나 설치하지 않아도, 인터넷을 통해 필요할 때 언제든지 서비스를 사용할 수 있습니다. 
 
 이 서비스는 대부분 월이나 연 단위로 사용료를 지불하는 형태로 운영되며, 서버 운영, 유지보수, 소프트웨어 업그레이드 등을 제공사가 담당하여 비용과 시간을 절약할 수 있습니다.
 
-#### 왜 주제를 Nextjs, AI SaaS로?
+### 왜 주제를 Nextjs, AI SaaS로?
 * Nextjs는 fullstack 개발이 가능한 플렛폼으로 Frontend에 국한되지 않게 하나의 프로젝트에 front-backend 서비스를 개발하고 제공 할 수 있습니다.
 * 최근 Llama3, GPT-4.0o 등의 발표로 AI 발전이 더 가속화됨을 느꼈고 이를 사용하지 않는다면 AI를 사용하는 개발자와 많은 차이가 있을 것이라 생각했습니다.
 * 또한, 미래에 AI가 광범위하게 사용될 것이 자명하므로 api 사용방법을 익히기 위해 해당프로젝트를 주제로 선정하여 진행했습니다.
@@ -105,9 +106,9 @@ AI SaaS(Software as a Service)란 클라우드 기반 방식으로 제공되는 
 
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
 
+---
 
-
-### built-with
+## built-with
 프로젝트에 사용한 주요 프레임워크와 라이브러리
 ##### web기술
 NextJs와 React, Clerk
@@ -121,7 +122,7 @@ OpenAI, Replicate
 * [![Replicate][Replicate]][Replicate-url]
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
 
-
+---
 
 <!-- GETTING STARTED -->
 ## 시작하기
@@ -197,7 +198,7 @@ To get a local copy up and running follow these simple example steps.
 *    "typewriter-effect" : 첫화면 글자 타이핑 효과
 *    "zod" : HookForm 사용시 validation
 *    "zustand" : 글로벌 상태관리(구독 및 질의사용횟수)
-
+---
 ### Installation
 
 _아래는 앱을 설치하고 설정하는 방법의 예입니다. 제 AI SaaS 서비스는 OpenAI, Replica, Llama3, stripe... 등에 의존성을 가지며 각 서비스별 api_key를 획득하고 사용하는 것을 권장합니다._
@@ -258,7 +259,7 @@ https://ai-saas-webstudy.vercel.app/
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
 
 
-
+---
 <!-- ROADMAP -->
 ## Roadmap
 
