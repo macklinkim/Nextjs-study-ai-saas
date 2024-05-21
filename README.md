@@ -42,13 +42,11 @@
     <a href="https://ai-saas-webstudy.vercel.app/"><strong>AI 사용하러 가기»</strong></a>
     <br />
     <br />
-    <a href="https://github.com/macklinkim/Nextjs-study-ai-saas">DEMO 보기</a>
-    ·
     <a href="https://github.com/macklinkim/Nextjs-study-ai-saas/issues/new?labels=bug&template=bug-report---.md">버그 신고</a>
     ·
     <a href="https://github.com/macklinkim/Nextjs-study-ai-saas/issues/new?labels=enhancement&template=feature-request---.md">기능 요청</a>
     ·
-    <a href="https://blog.naver.com/kopsert">개발자블로그</a>
+    <a href="https://blog.naver.com/kopsert">개발자블로그 방문</a>
     
   </p>
 </div>
@@ -68,7 +66,7 @@
     <li>
       <a href="#시작하기">시작하기</a>
       <ul>
-        <li><a href="#prerequisites">필요 package</a></li>
+        <li><a href="#NPM-PACKAGES">필요 package</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -88,11 +86,8 @@
 [![Product Name Screen Shot][product-screenshot]](/public/captureMain.png)
 
 최근 글로벌 거대기업들이 AI개발에 주력하고 있으며 세계는 이 변화를 주목하고 있습니다. 
-이 변화를 살펴보면 대표적인 것으로는 '딥러닝'이 있습니다. 과거의 인공지능은 사람이 직접 규칙을 입력하고, 그 규칙대로 동작하는 '규칙 기반 AI'였습니다. 하지만 딥러닝을 이용한 AI는 수많은 데이터를 스스로 학습하며 규칙을 찾아냅니다. 이를 통해 인간이 규칙을 찾아내기 어려운 복잡한 문제들을 효율적으로 해결할 수 있게 되었습니다.
 
-또한, '페더럴 러닝'이라는 개념도 등장하였습니다. 이는 여러 디바이스에서 생성되는 데이터를 개별적으로 학습하고, 그 학습 결과를 중앙에 모아 최종 모델을 만들어내는 기법입니다. 이를 이용하면 개인정보의 위험 없이 다양한 데이터를 학습할 수 있게 되어 AI의 학습 효율과 정확도를 더욱 끌어올릴 수 있게 되었습니다.
-
-이 프로젝트는 우수하고 다양한 최신 AI의 기능을 사용할 수 있도록 일반 사용자에게 Web Service를 제공하는게 목적입니다.
+이 프로젝트는 우수한 최신 AI의 기능을 일반 사용자에게 제공하는 AI SaaS 프로젝트입니다.
 
 #### AI SaaS란?
 
@@ -100,15 +95,12 @@ AI SaaS(Software as a Service)란 클라우드 기반 방식으로 제공되는 
 
 이 서비스는 대부분 월이나 연 단위로 사용료를 지불하는 형태로 운영되며, 서버 운영, 유지보수, 소프트웨어 업그레이드 등을 제공사가 담당하여 비용과 시간을 절약할 수 있습니다.
 
-AI SaaS 서비스는 다양한 분야에서 활용되는데, 가장 대표적인 예시로는 CRM, ERP, 마케팅 자동화, 고객 서비스, 데이터 분석 등이 있습니다. 이를 통해 기업들은 고객 관리부터 효율적인 비즈니스 운영, 예측 분석 등 각종 비즈니스 프로세스를 자동화하고, 최적화할 수 있습니다.
-
-이외에 개인적으로 Nextjs와 React, Tailwind, Clerk 및 Openai API, Llama3, replicate 등의 AI기술을 접근하고 사용해보는 프로젝트입니다.
-
 #### 왜 주제를 Nextjs, AI SaaS로?
 * Nextjs는 fullstack 개발이 가능한 플렛폼으로 Frontend에 국한되지 않게 하나의 프로젝트에 front-backend 서비스를 개발하고 제공 할 수 있습니다.
 * 최근 Llama3, GPT-4.0o 등의 발표로 AI 발전이 더 가속화됨을 느꼈고 이를 사용하지 않는다면 AI를 사용하는 개발자와 많은 차이가 있을 것이라 생각했습니다.
 * 또한, 미래에 AI가 광범위하게 사용될 것이 자명하므로 api 사용방법을 익히기 위해 해당프로젝트를 주제로 선정하여 진행했습니다.
-
+* 이외에 개인적으로 Nextjs와 React, Tailwind, Clerk 및 Openai API, Llama3, replicate 등의 AI기술에 접근하고 실제로 사용하는 프로젝트를 제작하고 싶어 주제로 정했습니다.
+* 개발 과정에 공부하게 된 내용을 블로그에 정리했으니 방문해보세요.
 <a href="https://blog.naver.com/kopsert">프로젝트 제작 블로그가기</a>
 
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
@@ -116,15 +108,13 @@ AI SaaS 서비스는 다양한 분야에서 활용되는데, 가장 대표적인
 
 
 ### built-with
-
-이 파트에서는 제가 프로젝트에 사용한 주요 프레임워크와 라이브러리를 기재했습니다.
-##### web
+프로젝트에 사용한 주요 프레임워크와 라이브러리
+##### web기술
 NextJs와 React, Clerk
-##### AI
+##### AI기술
 OpenAI, Replicate
 
---------------
-
+##### 클릭시 이동
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
 * [![openai][openai]][openai-url]
@@ -139,7 +129,7 @@ OpenAI, Replicate
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### NPM-PACKAGES
 
 이 프로젝트에는 다양한 library들을 사용했습니다.
 
