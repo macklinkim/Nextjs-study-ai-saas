@@ -85,6 +85,10 @@
 
 [![Product Name Screen Shot][product-screenshot]](/public/captureMain.png)
 
+<video controls >
+<source src='https://github.com/macklinkim/Nextjs-study-ai-saas/assets/93594679/3909526a-5773-41d4-9730-47714de3ed21'>
+</video>
+
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
 Here's why:
