@@ -47,6 +47,9 @@
     <a href="https://github.com/macklinkim/Nextjs-study-ai-saas/issues/new?labels=bug&template=bug-report---.md">버그 신고</a>
     ·
     <a href="https://github.com/macklinkim/Nextjs-study-ai-saas/issues/new?labels=enhancement&template=feature-request---.md">기능 요청</a>
+    ·
+    <a href="https://blog.naver.com/kopsert">개발자블로그</a>
+    
   </p>
 </div>
 
@@ -57,21 +60,20 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#프로젝트-주제">프로젝트의 주제</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">개발 환경</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#시작하기">시작하기</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#prerequisites">필요 package</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -81,57 +83,143 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## 프로젝트-주제
 
 [![Product Name Screen Shot][product-screenshot]](/public/captureMain.png)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+최근 글로벌 거대기업들이 AI개발에 주력하고 있으며 세계는 이 변화를 주목하고 있습니다. 
+이 변화를 살펴보면 대표적인 것으로는 '딥러닝'이 있습니다. 과거의 인공지능은 사람이 직접 규칙을 입력하고, 그 규칙대로 동작하는 '규칙 기반 AI'였습니다. 하지만 딥러닝을 이용한 AI는 수많은 데이터를 스스로 학습하며 규칙을 찾아냅니다. 이를 통해 인간이 규칙을 찾아내기 어려운 복잡한 문제들을 효율적으로 해결할 수 있게 되었습니다.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+또한, '페더럴 러닝'이라는 개념도 등장하였습니다. 이는 여러 디바이스에서 생성되는 데이터를 개별적으로 학습하고, 그 학습 결과를 중앙에 모아 최종 모델을 만들어내는 기법입니다. 이를 이용하면 개인정보의 위험 없이 다양한 데이터를 학습할 수 있게 되어 AI의 학습 효율과 정확도를 더욱 끌어올릴 수 있게 되었습니다.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+이 프로젝트는 우수하고 다양한 최신 AI의 기능을 사용할 수 있도록 일반 사용자에게 Web Service를 제공하는게 목적입니다.
 
-Use the `BLANK_README.md` to get started.
+#### AI SaaS란?
+
+AI SaaS(Software as a Service)란 클라우드 기반 방식으로 제공되는 인공지능 소프트웨어 서비스를 말합니다. 사전에 소프트웨어를 구매하거나 설치하지 않아도, 인터넷을 통해 필요할 때 언제든지 서비스를 사용할 수 있습니다. 
+
+이 서비스는 대부분 월이나 연 단위로 사용료를 지불하는 형태로 운영되며, 서버 운영, 유지보수, 소프트웨어 업그레이드 등을 제공사가 담당하여 비용과 시간을 절약할 수 있습니다.
+
+AI SaaS 서비스는 다양한 분야에서 활용되는데, 가장 대표적인 예시로는 CRM, ERP, 마케팅 자동화, 고객 서비스, 데이터 분석 등이 있습니다. 이를 통해 기업들은 고객 관리부터 효율적인 비즈니스 운영, 예측 분석 등 각종 비즈니스 프로세스를 자동화하고, 최적화할 수 있습니다.
+
+이외에 개인적으로 Nextjs와 React, Tailwind, Clerk 및 Openai API, Llama3, replicate 등의 AI기술을 접근하고 사용해보는 프로젝트입니다.
+
+#### 왜 주제를 Nextjs, AI SaaS로?
+* Nextjs는 fullstack 개발이 가능한 플렛폼으로 Frontend에 국한되지 않게 하나의 프로젝트에 front-backend 서비스를 개발하고 제공 할 수 있습니다.
+* 최근 Llama3, GPT-4.0o 등의 발표로 AI 발전이 더 가속화됨을 느꼈고 이를 사용하지 않는다면 AI를 사용하는 개발자와 많은 차이가 있을 것이라 생각했습니다.
+* 또한, 미래에 AI가 광범위하게 사용될 것이 자명하므로 api 사용방법을 익히기 위해 해당프로젝트를 주제로 선정하여 진행했습니다.
+
+<a href="https://blog.naver.com/kopsert">프로젝트 제작 블로그가기</a>
 
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
 
 
 
-### Built With
+### built-with
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+이 파트에서는 제가 프로젝트에 사용한 주요 프레임워크와 라이브러리를 기재했습니다.
+##### web
+NextJs와 React, Clerk
+##### AI
+OpenAI, Replicate
+
+--------------
 
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
-
-
+* [![openai][openai]][openai-url]
+* [![Replicate][Replicate]][Replicate-url]
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## 시작하기
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+이 프로젝트에는 다양한 library들을 사용했습니다.
+
 * npm
   ```sh
-  npm install npm@latest -g
+  npm install "@clerk/nextjs"
+    "@emailjs/browser"
+    "@hookform/resolvers"
+    "@prisma/client"
+    "@radix-ui/react-avatar"
+    "@radix-ui/react-dialog"
+    "@radix-ui/react-label"
+    "@radix-ui/react-progress"
+    "@radix-ui/react-select"
+    "@radix-ui/react-slot"
+    "axios"
+    "class-variance-authority"
+    "clsx"
+    "crisp-sdk-web"
+    "emailjs"
+    "lucide-react"
+    "next"
+    "openai"
+    "react"
+    "react-dom"
+    "react-hook-form"
+    "react-hot-toast"
+    "react-markdown"
+    "replicate"
+    "stripe"
+    "swiper"
+    "tailwind-merge"
+    "tailwindcss-animate"
+    "typewriter-effect"
+    "zod"
+    "zustand"
   ```
+*    "@emailjs/browser" : 개발자에게 메일 보내기
+*    "@hookform/resolvers" : HookForm 사용(nextjs)
+*    "@prisma/client" : prisma DB연결 및 관리
+*    "@radix-ui/react-avatar" : AI 및 사용자 그림 표현
+*    "@radix-ui/react-dialog" : 알림창
+*    "@radix-ui/react-label"  : 라벨
+*    "@radix-ui/react-progress" : 질문 횟수 소비 진행도
+*    "@radix-ui/react-select" : AI그림생성 select tag
+*    "@radix-ui/react-slot" : AI 그림생성 표현
+*    "axios" : data fetch, server api 호출
+*    "class-variance-authority" : 페이지 접근제어
+*    "clsx" : tailwind css 병합
+*    "crisp-sdk-web" : 실시간 문의데스크
+*    "emailjs" : 개발자에게 Email보내기
+*    "lucide-react" : 각종 아이콘
+*    "next" : nextjs components 사용
+*    "openai" : openai api gpt-3.5, gpt-4, dalle-2,3사용
+*    "react" : react hooks 사용
+*    "react-dom" : react hooks 사용
+*    "react-hook-form" : react hooks 사용
+*    "react-hot-toast" : 간편 안내경고 창
+*    "react-markdown" : 코드영역 textarea
+*    "replicate" : Llama3, 비디오생성 ai 
+*    "stripe" : 카드결제용 라이브러리(테스트만)
+*    "swiper" : 첫화면 3D slide
+*    "tailwind-merge" : twmerge 사용
+*    "tailwindcss-animate" : 에니메이션 효과적용
+*    "typewriter-effect" : 첫화면 글자 타이핑 효과
+*    "zod" : HookForm 사용시 validation
+*    "zustand" : 글로벌 상태관리(구독 및 질의사용횟수)
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+_아래는 앱을 설치하고 설정하는 방법의 예입니다. 제 AI SaaS 서비스는 OpenAI, Replica, Llama3, stripe... 등에 의존성을 가지며 각 서비스별 api_key를 획득하고 사용하는 것을 권장합니다._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. 아래 문서를 참고하여 API Key들을 받으세요 (Stripe, Crisp는 별도 참고)
+[emailjs](https://dashboard.emailjs.com/sign-in)
+[OpenAi](https://blog.naver.com/kopsert/223435534517)
+[Replica](https://blog.naver.com/kopsert/223441546630)
+[CLERK](https://blog.naver.com/kopsert/223432983408)
+[Prisma](https://blog.naver.com/kopsert/223441626528)
+
+2. Clone git repocitory
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
@@ -139,7 +227,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+4. API_Key 들을 복사된 `config.js`에 넣어주세요.
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
@@ -147,13 +235,35 @@ _Below is an example of how you can instruct your audience on installing and set
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
 
 
-
+---
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+사용법은 간단합니다. 아래 주소로 접속하시고
+https://ai-saas-webstudy.vercel.app/
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+좌측상단 로그인버튼 클릭하시고 로그인하여 서비스를 이용하시면 됩니다.
+![alt text](public/readme_usage_01.png)
+
+로그인시 구글, Notion 으로 로그인하고
+![alt text](public/readme_usage_02.png)
+
+첫화면에서 원하는 서비스로 이동하고
+![alt text](public/readme_usage_03.png)
+
+질문입력란에 질문을 기재하고 버튼을 누르시거나 엔터치세요.
+![alt text](public/readme_usage_04.png)
+
+문제가 발생하면 보라색 말주머니 버튼 눌러 문의가능합니다.(crisp기능)
+![alt text](public/readme_usage_05.png)
+
+하단 footer에 메일 링크를 클릭하시고
+![alt text](public/readme_usage_06.png)
+
+개발자에게 바로 연락 가능하십니다.(emailjs)
+![alt text](public/readme_usage_07.png)
+
+
 
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
 
@@ -162,36 +272,22 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add 최상단으로 links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Nextjs
+- [x] OpenAI
+  - [x] GPT-3.5
+  - [x] GPT-4
+  - [ ] GPT-4.0o
+- [x] Llama3
+- [x] Clerk
+    - [ ] Clerk로 페이지 접근 제한(관리자페이지)
+- [x] 사용법 문서화
+- [ ] 다크모드 추가
 
-See the [open issues](https://github.com/macklinkim/Nextjs-study-ai-saas/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">최상단으로</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+제 github과 블로그에 방문하셔서 자세한 내용을 보실 수 있습니다. 
+* [github](https://github.com/macklinkim/Nextjs-study-ai-saas/issues)
+* [Blog](https://blog.naver.com/kopsert)
 
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
-
 
 
 <!-- LICENSE -->
@@ -206,31 +302,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">최상단으로</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+김천호 - [EMAIL] - kopsert@naver.com
+Project Link: [https://github.com/macklinkim/Nextjs-study-ai-saas](https://github.com/macklinkim/Nextjs-study-ai-saas)
 
 <p align="right">(<a href="#readme-top">최상단으로</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -251,3 +326,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
+[openai-url]: https://openai.com/
+[openai]: public/openai.png
+[Replicate-url]: https://replicate.com/
+[Replicate]: public/replica.png
